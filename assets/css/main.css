@@ -43,18 +43,141 @@
    ========================================================================== */
 
 body {
+  background: url(../images/subtle_dots.png) 0 0 repeat;
   font-family: OpenSans, sans-serif;
 }
 
-h1 {
+h1, h3 {
+  color: #6FA9CC;
   font-weight: 200;
-  margin-bottom: 20px;
+}
+
+h1 {
+  margin: 30px 0;
+}
+
+h3 {
+  margin: 20px 0;
+}
+
+.weather-icon {
+  color: #999;
+}
+
+.text {
+  color: #65BE84;
+}
+
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
 }
 
 /* ==========================================================================
    Form
    ========================================================================== */
 
+form {
+  margin-bottom: 30px;
+}
+
+span.or {
+  color: #666;
+  display: block;
+  font-size: 18px;
+  font-weight: 500;
+  margin-top: 5px;
+}
+
 p.error {
   min-height: 20px;
+}
+
+/* ==========================================================================
+   Current Conditions
+   ========================================================================== */
+
+.current-conditions {
+  display: none;
+  margin-bottom: 30px;
+}
+
+.current-conditions dt {
+  float: left;
+  margin-right: 30px;
+}
+
+.current-conditions dd {
+  font-size: 16px;
+  margin-bottom: 5px; 
+}
+
+.current-conditions .weather-icon {
+  font-size: 48px;
+  line-height: 60px;
+}
+
+/* ==========================================================================
+   Forecast
+   ========================================================================== */
+
+.forecast {
+  display: none;
+}
+
+.forecast dt {
+  font-weight: 200;
+  text-transform: uppercase;
+}
+
+.forecast dt,
+.forecast .icon {
+  margin-bottom: 10px;
+}
+
+.forecast .icon .weather-icon {
+  font-size: 36px;
+  line-height: 36px;
+}
+
+.forecast .temp i {
+  font-size: 24px;
+  margin-right: 10px;
+  vertical-align: middle;
+}
+
+.forecast dt.day {
+  color: #666;
+  font-weight: 500;
+}
+
+/* ==========================================================================
+   Media Queries
+   ========================================================================== */
+
+@media (max-width:767px) {
+
+  h1 {
+    font-size: 32px;
+  }
+  
+  h3 {
+    font-size: 18px;
+  }
+  
+  span.or {
+    margin-bottom: 15px;
+  }
+  
+  .current-conditions dd {
+    font-size: 14px;
+    margin-bottom: 0;
+  }
+  
+  .current-conditions .weather-icon {
+    font-size: 40px;
+    line-height: 54px;
+  }
+
 }

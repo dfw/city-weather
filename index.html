@@ -1,17 +1,18 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en-us" ng-app="demo">
 <head>
   <meta charset="UTF-8" />
   <title>Weather Forecast</title>
   <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="assets/css/weather-icons.css" />
   <link rel="stylesheet" href="assets/css/main.css" />
 </head>
-<body>
-  <section class="container">
-    <h1 class="text-center">Weather Forecast</h1>
-    <form role="form" class="text-center">
+<body ng-controller="weather">
+  <div class="container">
+    <h1>Weather Forecast</h1>
+    <form role="form" ng-submit="getWeather()">
       <div class="row">
-        <div class="col-sm-3 col-sm-offset-2">
+        <div class="col-sm-3">
           <div class="form-group">
             <select name="city" id="city" class="form-control">
               <option value="">Select a city</option>
@@ -33,21 +34,40 @@
             </select>
           </div>
         </div>
-        <div class="col-sm-2 text-center"><span class="or">OR</span></div>
+        <div class="col-sm-1 text-center"><span class="or">OR</span></div>
         <div class="col-sm-3">
           <div class="form-group">
-            <input type="text" class="form-control" placeholder="Zip Code" />
+            <input name="zip" id="zip" type="text" class="form-control" placeholder="Zip Code" maxlength="5" />
           </div>
         </div>
       </div>
-      <div class="row">
-        <p class="error text-danger"></p>
-        <p class="text-center"><button type="submit" class="btn btn-success">View Forecast</button></p>
-      </div>
+      <p class="error text-danger"></p>
+      <p><button type="submit" class="btn btn-success">View Forecast</button></p>
     </form>
-  </section>
+    <section class="current-conditions">
+      <h3 ng-bind="current.title"></h3>
+      <dl class="group">
+        <dt ng-bind-html="current.code"></dt>
+          <dd ng-bind="current.text" class="text"></dd>
+          <dd><span ng-bind="current.temp"></span>&deg; F</dd>
+      </dl>
+    </section>
+    <section class="forecast">
+      <h3>5 Day Forecast</h3>
+      <div class="row">
+        <dl class="col-sm-2" ng-repeat="day in forecast">
+          <dt ng-bind="day.day" class="day"></dt>
+            <dd class="icon"><i class="weather-icon {{day.icon}}"></i></dd>
+            <dd ng-bind="day.text" class="text"></dd>
+            <dd class="temp"><i class="weather-icon wi-up"></i><span ng-bind="day.high"></span>&deg; F</dd>
+            <dd class="temp"><i class="weather-icon wi-down"></i><span ng-bind="day.low"></span>&deg; F</dd>
+        </dl>
+      </div>
+    </section>
+  </div>
   <script src="assets/js/jquery.min.js"></script>
   <script src="assets/js/angular.min.js"></script>
+  <script src="assets/js/angular-sanitize.js"></script>
   <script src="assets/js/main.js"></script>
 </body>
 </html>
