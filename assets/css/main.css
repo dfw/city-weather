@@ -66,6 +66,7 @@ h3 {
 
 .text {
   color: #65BE84;
+  font-weight: 500;
 }
 
 .group:after {
@@ -127,7 +128,6 @@ p.error {
 }
 
 .forecast dt {
-  font-weight: 200;
   text-transform: uppercase;
 }
 
