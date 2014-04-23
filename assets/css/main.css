@@ -179,5 +179,14 @@ p.error {
     font-size: 40px;
     line-height: 54px;
   }
+  
+  .forecast .day, .forecast .icon {
+    float: left;
+    width: 25%;
+  }
+  
+  .forecast .text, .forecast .temp {
+    margin-left: 50%;
+  }
 
 }
